@@ -1,25 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
-import { render } from '@testing-library/react';
+// import { render } from '@testing-library/react';
+import * as rtl from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import PlayerList from './component/PlayerList';
 
-it('renders without crashing', () => {
-	const div = document.createElement('div');
-	ReactDOM.render(<App />, div);
-	ReactDOM.unmountComponentAtNode(div);
+afterEach(rt1.cleanup);
+
+// it('The App renders without crashing', () => {
+// 	rtl.render(<App />);
+// });
+
+it('Renders Womens World Cup h1', () => {
+	const wrapper = rtl.render(<App />);
+	expect(wrapper.getByText(/women's world cup/i));
 });
 
-test('Header is displayed', () => {
-	const { getByTestId } = render(<App />);
-	getByTestId(/header/i);
-});
-
-test('There is a search button', () => {
-	const { getByTestId } = render(<App />);
-	getByTestId(/searchButton/i);
-});
-
-test('search is found in search bar', () => {
-	const { getByText } = render(<App />);
-	getByText(/search/i);
+it('Players are defined', () => {
+	const players = rtl.render(<PlayerList />);
+	expect(players).toBeDefined();
+	expect(players).not.toBeUndefined();
+	expect(players).not.toBeFalsy();
 });
