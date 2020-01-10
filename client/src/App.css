@@ -1,33 +1,71 @@
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+	animation: App-logo-spin infinite 20s linear;
+	height: 40vmin;
+	pointer-events: none;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
 }
 
 .App-link {
-  color: #61dafb;
+	color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* @keyframes App-logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+} */
+
+.toggle {
+	position: absolute;
+	top: 40px;
+	right: 50px;
+	background: #fff;
+	border: 2px solid #446b7e;
+	width: 45px;
+	height: 20px;
+	cursor: pointer;
+	border-radius: 20px;
+	transition: 0.5s;
+}
+
+.toggle:before {
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 16px;
+	height: 16px;
+	background: #00151f;
+	border-radius: 50%;
+	transition: 0.5s;
+}
+
+.toggle.active:before {
+	left: 25px;
+}
+
+.dark-mode {
+	color: #fff;
+	background-color: #313843;
+}
+
+.navbar {
+	text-align: center;
 }
